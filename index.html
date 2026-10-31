@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+  <title>Web Wave — Яркая студия веб-разработки и цифрового дизайна</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Многослойное фоновое аврора-свечение -->
+  <div class="ambient-orb ambient-orb--cyan" aria-hidden="true"></div>
+  <div class="ambient-orb ambient-orb--violet" aria-hidden="true"></div>
+  <div class="ambient-orb ambient-orb--coral" aria-hidden="true"></div>
+
+  <!-- Шапка сайта -->
+  <header class="header" id="header">
+    <div class="container header__inner">
+      <a href="#" class="logo" aria-label="Web Wave на главную">
+        <span class="logo__icon" aria-hidden="true">
+          <svg width="30" height="30" viewBox="0 0 30 30" fill="none">
+            <defs>
+              <linearGradient id="logoGrad" x1="0" y1="0" x2="30" y2="30" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#00f0ff"/>
+                <stop offset="50%" stop-color="#8b5cf6"/>
+                <stop offset="100%" stop-color="#ff5e97"/>
+              </linearGradient>
+            </defs>
+            <path d="M3 18C7 11.5 11 11.5 15 18C19 24.5 23 24.5 27 18" stroke="url(#logoGrad)" stroke-width="3" stroke-linecap="round"/>
+            <path d="M3 11.5C7 5 11 5 15 11.5C19 18 23 18 27 11.5" stroke="url(#logoGrad)" stroke-width="2.2" stroke-linecap="round" stroke-opacity="0.6"/>
+          </svg>
+        </span>
+        <span class="logo__text">Web<span>Wave</span></span>
+      </a>
+
+      <nav class="nav" id="nav-menu" aria-label="Основная навигация">
+        <ul class="nav__list">
+          <li><a href="#services" class="nav__link">Услуги</a></li>
+          <li><a href="#calculator" class="nav__link">Калькулятор</a></li>
+          <li><a href="#portfolio" class="nav__link">Кейсы</a></li>
+          <li><a href="#faq" class="nav__link">FAQ</a></li>
+        </ul>
+
+        <!-- Кастомный переключатель валюты -->
+        <div class="custom-select custom-select--compact" data-select id="currency-select">
+          <button type="button" class="custom-select__trigger" aria-haspopup="listbox" aria-expanded="false">
+            <span class="custom-select__value" data-select-value>₽ RUB</span>
+            <svg class="custom-select__arrow" width="14" height="14" viewBox="0 0 24 24" fill="none">
+              <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <ul class="custom-select__dropdown" role="listbox">
+            <li class="custom-select__option is-selected" role="option" data-value="RUB" data-rate="1" data-symbol="₽">
+              <span class="opt-dot opt-dot--cyan"></span>₽ RUB (Рубли)
+            </li>
+            <li class="custom-select__option" role="option" data-value="USD" data-rate="0.011" data-symbol="$">
+              <span class="opt-dot opt-dot--violet"></span>$ USD (Доллары)
+            </li>
+            <li class="custom-select__option" role="option" data-value="EUR" data-rate="0.01" data-symbol="€">
+              <span class="opt-dot opt-dot--coral"></span>€ EUR (Евро)
+            </li>
+          </ul>
+        </div>
+
+        <a href="#contact" class="btn btn--primary nav__cta">
+          <span>Запустить проект</span>
+        </a>
+      </nav>
+
+      <button type="button" class="burger" id="burger-btn" aria-label="Открыть меню" aria-expanded="false">
+        <span class="burger__line"></span>
+        <span class="burger__line"></span>
+        <span class="burger__line"></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero секция с интерактивным Canvas -->
+    <section class="hero" id="hero">
+      <canvas id="wave-canvas" class="hero__canvas" aria-hidden="true"></canvas>
+
+      <div class="container hero__grid">
+        <div class="hero__content reveal">
+          <div class="badge">
+            <span class="badge__dot"></span>
+            <span>Открыт набор проектов на этот месяц</span>
+          </div>
+
+          <h1 class="hero__title">
+            Создаем сайты на <span class="text-gradient">неоновой волне</span> высокой конверсии
+          </h1>
+
+          <p class="hero__subtitle">
+            Превращаем сложные бизнес-задачи в яркие, молниеносные веб-продукты. Сочетаем выразительный UI/UX-дизайн, живую микроанимацию и чистую архитектуру, которая продает с первого экрана.
+          </p>
+
+          <div class="hero__actions">
+            <a href="#contact" class="btn btn--primary btn--lg">
+              <span>Стать клиентом студии</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                <path d="M5 12H19M19 12L13 6M19 12L13 18" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+            <a href="#calculator" class="btn btn--ghost btn--lg">Рассчитать проект</a>
+          </div>
+
+          <div class="hero__stats">
+            <div class="stat-item">
+              <span class="stat-item__num stat-item__num--cyan">99/100</span>
+              <span class="stat-item__label">Google PageSpeed</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-item__num stat-item__num--violet">140+</span>
+              <span class="stat-item__label">Ярких релизов</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-item__num stat-item__num--coral">+64%</span>
+              <span class="stat-item__label">Прирост заявок</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Интерактивная 3D-витрина в Hero -->
+        <div class="hero__visual reveal">
+          <div class="wave-card" id="tilt-card">
+            <div class="wave-card__glow" aria-hidden="true"></div>
+
+            <div class="wave-card__header">
+              <div class="wave-card__dots">
+                <span class="dot-red"></span>
+                <span class="dot-yellow"></span>
+                <span class="dot-green"></span>
+              </div>
+              <span class="wave-card__tag">wave-studio // live-metrics</span>
+            </div>
+
+            <div class="wave-card__body">
+              <!-- Живой эквалайзер волн -->
+              <div class="equalizer-box">
+                <div class="equalizer-box__info">
+                  <span class="equalizer-box__badge">ACTIVE FLOW</span>
+                  <h4>Генерация целевого трафика и лидов</h4>
+                </div>
+                <div class="wave-bars" aria-hidden="true">
+                  <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+                </div>
+              </div>
+
+              <div class="metric-row">
+                <div class="metric-row__info">
+                  <span class="metric-row__title">Скорость отрисовки интерфейса</span>
+                  <span class="metric-row__val metric-row__val--cyan">0.3 сек</span>
+                </div>
+                <div class="progress-bar"><span class="progress-bar__fill--cyan" style="width: 96%"></span></div>
+              </div>
+
+              <div class="metric-row">
+                <div class="metric-row__info">
+                  <span class="metric-row__title">Адаптивность (320px — 4K Retina)</span>
+                  <span class="metric-row__val metric-row__val--violet">100%</span>
+                </div>
+                <div class="progress-bar"><span class="progress-bar__fill--violet" style="width: 100%"></span></div>
+              </div>
+
+              <div class="metric-row">
+                <div class="metric-row__info">
+                  <span class="metric-row__title">Удержание внимания (Interactive UX)</span>
+                  <span class="metric-row__val metric-row__val--coral">+88%</span>
+                </div>
+                <div class="progress-bar"><span class="progress-bar__fill--coral" style="width: 88%"></span></div>
+              </div>
+
+              <div class="wave-card__footer">
+                <div class="pulse-status">
+                  <span class="pulse-status__ring"></span>
+                  <span>Свободно 2 слота на разработку</span>
+                </div>
+                <a href="#contact" class="link-neon">Забронировать →</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Динамическая бегущая строка (Marquee) -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee__track">
+        <span>✦ ВЫРАЗИТЕЛЬНЫЙ UI/UX ДИЗАЙН</span>
+        <span>✦ АДАПТИВНОСТЬ ОТ 320PX</span>
+        <span>✦ МИКРОАНИМАЦИИ И WEBGL</span>
+        <span>✦ ВЫСОКАЯ КОНВЕРСИЯ В ЗАЯВКУ</span>
+        <span>✦ ЧИСТЫЙ КОД БЕЗ КОНСТРУКТОРОВ</span>
+        <span>✦ ВЫРАЗИТЕЛЬНЫЙ UI/UX ДИЗАЙН</span>
+        <span>✦ АДАПТИВНОСТЬ ОТ 320PX</span>
+        <span>✦ МИКРОАНИМАЦИИ И WEBGL</span>
+        <span>✦ ВЫСОКАЯ КОНВЕРСИЯ В ЗАЯВКУ</span>
+        <span>✦ ЧИСТЫЙ КОД БЕЗ КОНСТРУКТОРОВ</span>
+      </div>
+    </div>
+
+    <!-- Секция Услуг со Spotlight-эффектом -->
+    <section class="section" id="services">
+      <div class="container">
+        <div class="section__head reveal">
+          <span class="section__eyebrow">Наши компетенции</span>
+          <h2 class="section__title">Цифровые продукты, от которых <span class="text-gradient">невозможно оторваться</span></h2>
+          <p class="section__desc">Соединяем эстетику современного веба с четкими маркетинговыми триггерами.</p>
+        </div>
+
+        <div class="services-grid">
+          <article class="service-card spotlight-card reveal">
+            <div class="service-card__icon service-card__icon--cyan">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M13 2L3 14H12L11 22L21 10H12L13 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <h3 class="service-card__title">Имиджевые лендинги</h3>
+            <p class="service-card__text">Яркие промо-страницы с кастомной графикой, плавными эффектами при скролле и продуманной воронкой, превращающей посетителей в клиентов.</p>
+            <ul class="service-card__tags">
+              <li>Wow-эффекты</li>
+              <li>Высокий ROI</li>
+              <li>Адаптив 320px+</li>
+            </ul>
+          </article>
+
+          <article class="service-card spotlight-card reveal">
+            <div class="service-card__icon service-card__icon--violet">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <rect x="2" y="3" width="20" height="14" rx="2" stroke="currentColor" stroke-width="2"/>
+                <path d="M8 21H16M12 17V21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <h3 class="service-card__title">Корпоративные экосистемы</h3>
+            <p class="service-card__text">Многостраничные сайты компаний с фирменным дизайн-кодом, мгновенной загрузкой страниц, SEO-архитектурой и интеграцией с CRM.</p>
+            <ul class="service-card__tags">
+              <li>Дизайн-система</li>
+              <li>Удобная CMS</li>
+              <li>Интеграции</li>
+            </ul>
+          </article>
+
+          <article class="service-card spotlight-card reveal">
+            <div class="service-card__icon service-card__icon--coral">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+                <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+                <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <h3 class="service-card__title">Веб-сервисы и дашборды</h3>
+            <p class="service-card__text">Интерактивные клиентские кабинеты, калькуляторы, конфигураторы и SaaS-интерфейсы с реактивным откликом на действия пользователя.</p>
+            <ul class="service-card__tags">
+              <li>SPA / Frontend</li>
+              <li>Сложная логика</li>
+              <li>API & Безопасность</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Интерактивный калькулятор проекта -->
+    <section class="section section--glass" id="calculator">
+      <div class="container">
+        <div class="section__head reveal">
+          <span class="section__eyebrow">Интерактивная смета</span>
+          <h2 class="section__title">Соберите конфигурацию <span class="text-gradient">своего проекта</span></h2>
+          <p class="section__desc">Настройте параметры ниже — калькулятор мгновенно пересчитает бюджет и сроки, а по клику прикрепит готовый бриф к вашей заявке.</p>
+        </div>
+
+        <div class="calc-box spotlight-card reveal">
+          <div class="calc-box__controls">
+            <!-- Кастомный выпадающий список №1 -->
+            <div class="field-group">
+              <label class="field-label">Формат цифрового продукта</label>
+              <div class="custom-select" data-select id="calc-type">
+                <button type="button" class="custom-select__trigger" aria-haspopup="listbox" aria-expanded="false">
+                  <span class="custom-select__value" data-select-value>Имиджевый Лендинг (Landing Page)</span>
+                  <svg class="custom-select__arrow" width="18" height="18" viewBox="0 0 24 24" fill="none">
+                    <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </button>
+                <ul class="custom-select__dropdown" role="listbox">
+                  <li class="custom-select__option is-selected" role="option" data-value="landing" data-price="65000" data-days="10">
+                    <span class="opt-dot opt-dot--cyan"></span>Имиджевый Лендинг (Landing Page)
+                  </li>
+                  <li class="custom-select__option" role="option" data-value="corporate" data-price="130000" data-days="21">
+                    <span class="opt-dot opt-dot--violet"></span>Корпоративный многостраничный сайт
+                  </li>
+                  <li class="custom-select__option" role="option" data-value="ecommerce" data-price="190000" data-days="30">
+                    <span class="opt-dot opt-dot--coral"></span>Интернет-магазин с умным каталогом
+                  </li>
+                  <li class="custom-select__option" role="option" data-value="webapp" data-price="250000" data-days="38">
+                    <span class="opt-dot opt-dot--cyan"></span>Веб-приложение / Личный кабинет
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Кастомный выпадающий список №2 -->
+            <div class="field-group">
+              <label class="field-label">Уровень визуала и интерактивности</label>
+              <div class="custom-select" data-select id="calc-design">
+                <button type="button" class="custom-select__trigger" aria-haspopup="listbox" aria-expanded="false">
+                  <span class="custom-select__value" data-select-value>Авторский UI/UX + неоновые микроанимации</span>
+                  <svg class="custom-select__arrow" width="18" height="18" viewBox="0 0 24 24" fill="none">
+                    <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </button>
+                <ul class="custom-select__dropdown" role="listbox">
+                  <li class="custom-select__option" role="option" data-value="minimal" data-mult="0.85">
+                    <span class="opt-dot opt-dot--cyan"></span>Чистый минимализм (быстрый запуск)
+                  </li>
+                  <li class="custom-select__option is-selected" role="option" data-value="custom" data-mult="1">
+                    <span class="opt-dot opt-dot--violet"></span>Авторский UI/UX + неоновые микроанимации
+                  </li>
+                  <li class="custom-select__option" role="option" data-value="wow" data-mult="1.35">
+                    <span class="opt-dot opt-dot--coral"></span>Максимальный WOW: Canvas, 3D и кастомные шейдеры
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Декорированный ползунок с динамическим заполнением -->
+            <div class="field-group">
+              <div class="field-label-row">
+                <label class="field-label" for="screens-range">Масштаб проекта (уникальных блоков)</label>
+                <span class="range-badge" id="screens-output">7 блоков</span>
+              </div>
+              <input type="range" id="screens-range" class="custom-range" min="3" max="18" value="7" step="1">
+              <div class="range-marks">
+                <span>3 блока</span>
+                <span>10 блоков</span>
+                <span>18 блоков</span>
+              </div>
+            </div>
+
+            <!-- Декорированные чекбоксы -->
+            <div class="field-group">
+              <span class="field-label">Усиление проекта</span>
+              <div class="check-pills">
+                <label class="check-pill">
+                  <input type="checkbox" class="check-pill__input" data-addon-price="18000" data-addon-days="3" value="Продающий копирайтинг" checked>
+                  <span class="check-pill__box">
+                    <span class="check-pill__dot"></span>
+                    <span>Продающий копирайтинг</span>
+                  </span>
+                </label>
+                <label class="check-pill">
+                  <input type="checkbox" class="check-pill__input" data-addon-price="22000" data-addon-days="3" value="Интеграция с CRM и Telegram">
+                  <span class="check-pill__box">
+                    <span class="check-pill__dot"></span>
+                    <span>CRM + Telegram-бот</span>
+                  </span>
+                </label>
+                <label class="check-pill">
+                  <input type="checkbox" class="check-pill__input" data-addon-price="15000" data-addon-days="2" value="SEO и ускорение до 99/100">
+                  <span class="check-pill__box">
+                    <span class="check-pill__dot"></span>
+                    <span>SEO-оптимизация</span>
+                  </span>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Итог калькулятора -->
+          <div class="calc-box__summary">
+            <div class="summary-card">
+              <div class="summary-card__top">
+                <span class="summary-card__badge">Живой расчет</span>
+                <div class="summary-card__price-block">
+                  <span class="summary-card__label">Ориентировочная инвестиция:</span>
+                  <div class="summary-card__price" id="total-price">83 000 ₽</div>
+                </div>
+                <div class="summary-card__time-block">
+                  <span class="summary-card__label">Срок запуска:</span>
+                  <strong class="summary-card__time" id="total-days">~13 рабочих дней</strong>
+                </div>
+              </div>
+
+              <div class="summary-card__bottom">
+                <p class="summary-card__note">
+                  При заказе до конца недели разрабатываем <strong>интерактивный дизайн-концепт первого экрана бесплатно</strong> до старта договора.
+                </p>
+                <button type="button" class="btn btn--primary btn--full btn--lg" id="apply-calc-btn">
+                  <span>Зафиксировать смету и получить концепт</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Портфолио с визуальными мокапами -->
+    <section class="section" id="portfolio">
+      <div class="container">
+        <div class="section__head section__head--split reveal">
+          <div>
+            <span class="section__eyebrow">Наши работы</span>
+            <h2 class="section__title">Кейсы, которые <span class="text-gradient">приносят прибыль</span></h2>
+          </div>
+          <div class="filter-tabs" role="tablist" aria-label="Фильтр портфолио">
+            <button type="button" class="filter-btn is-active" data-filter="all">Все проекты</button>
+            <button type="button" class="filter-btn" data-filter="landing">Лендинги</button>
+            <button type="button" class="filter-btn" data-filter="service">Веб-сервисы</button>
+          </div>
+        </div>
+
+        <div class="portfolio-grid" id="portfolio-grid">
+          <!-- Кейс 1 -->
+          <article class="case-card spotlight-card reveal" data-category="landing">
+            <div class="case-card__preview case-card__preview--1">
+              <div class="mockup-window" aria-hidden="true">
+                <div class="mockup-window__bar"><span></span><span></span><span></span></div>
+                <div class="mockup-window__chart">
+                  <div class="chart-col" style="height: 45%"></div>
+                  <div class="chart-col" style="height: 65%"></div>
+                  <div class="chart-col" style="height: 55%"></div>
+                  <div class="chart-col is-accent" style="height: 92%"></div>
+                </div>
+              </div>
+              <span class="case-card__badge">Конверсия 7.4%</span>
+            </div>
+            <div class="case-card__body">
+              <span class="case-card__cat">FinTech • Промо-лендинг</span>
+              <h3 class="case-card__title">pulsePay — Крипто-эквайринг нового поколения</h3>
+              <p class="case-card__desc">Создали неоновый лендинг с 3D-калькулятором мерчанта и мгновенным онбордингом.</p>
+            </div>
+          </article>
+
+          <!-- Кейс 2 -->
+          <article class="case-card spotlight-card reveal" data-category="service">
+            <div class="case-card__preview case-card__preview--2">
+              <div class="mockup-window" aria-hidden="true">
+                <div class="mockup-window__bar"><span></span><span></span><span></span></div>
+                <div class="mockup-window__wave">
+                  <svg viewBox="0 0 200 60" fill="none">
+                    <path d="M0 45 Q 40 10, 80 35 T 160 20 T 200 30" stroke="#00f0ff" stroke-width="3" fill="none"/>
+                    <path d="M0 52 Q 50 25, 100 45 T 200 38" stroke="#ff5e97" stroke-width="2" stroke-dasharray="4 4" fill="none"/>
+                  </svg>
+                </div>
+              </div>
+              <span class="case-card__badge">Удержание +62%</span>
+            </div>
+            <div class="case-card__body">
+              <span class="case-card__cat">SaaS • Веб-платформа</span>
+              <h3 class="case-card__title">SoundWave AI — Генератор аудио-дорожек</h3>
+              <p class="case-card__desc">Разработали реактивный веб-интерфейс со звуковыми волнами в реальном времени.</p>
+            </div>
+          </article>
+
+          <!-- Кейс 3 -->
+          <article class="case-card spotlight-card reveal" data-category="landing">
+            <div class="case-card__preview case-card__preview--3">
+              <div class="mockup-window" aria-hidden="true">
+                <div class="mockup-window__bar"><span></span><span></span><span></span></div>
+                <div class="mockup-window__cards">
+                  <span></span><span></span>
+                </div>
+              </div>
+              <span class="case-card__badge">+240 заявок / мес</span>
+            </div>
+            <div class="case-card__body">
+              <span class="case-card__cat">Real Estate • Конфигуратор</span>
+              <h3 class="case-card__title">Aura Villas — Архитектурное бюро</h3>
+              <p class="case-card__desc">Адаптивный сайт с интерактивным подбором комплектации дома и расчетом ипотеки.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Аккордеон -->
+    <section class="section section--glass" id="faq">
+      <div class="container container--narrow">
+        <div class="section__head reveal">
+          <span class="section__eyebrow">Частые вопросы</span>
+          <h2 class="section__title">Прозрачный процесс <span class="text-gradient">без сюрпризов</span></h2>
+        </div>
+
+        <div class="accordion reveal" id="faq-accordion">
+          <div class="accordion__item is-open">
+            <button type="button" class="accordion__header" aria-expanded="true">
+              <span>Не будут ли яркие анимации тормозить на смартфонах и экранах 320px?</span>
+              <span class="accordion__icon" aria-hidden="true"></span>
+            </button>
+            <div class="accordion__content">
+              <div class="accordion__inner">
+                Мы используем аппаратное ускорение (GPU-анимации через <code>transform</code> и оптимизированный <code>requestAnimationFrame</code>). На экранах от <strong>320px включительно</strong> все сетки автоматически перестраиваются без горизонтальной прокрутки, а тяжелые эффекты адаптируются под возможности мобильного процессора.
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion__item">
+            <button type="button" class="accordion__header" aria-expanded="false">
+              <span>Что входит в бесплатный концепт до подписания договора?</span>
+              <span class="accordion__icon" aria-hidden="true"></span>
+            </button>
+            <div class="accordion__content">
+              <div class="accordion__inner">
+                После короткого созвона или переписки в Telegram мы собираем мудборд, предлагаем цветовую палитру и рисуем дизайн-прототип главного экрана вашего будущего сайта. Вы сразу видите уровень нашего подхода.
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion__item">
+            <button type="button" class="accordion__header" aria-expanded="false">
+              <span>Передаете ли вы исходный код и права на проект?</span>
+              <span class="accordion__icon" aria-hidden="true"></span>
+            </button>
+            <div class="accordion__content">
+              <div class="accordion__inner">
+                100% прав на дизайн-макеты, иллюстрации и чистый исходный код передаются вам по договору. Никакой привязки к закрытым абонентским платформам.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Главный призыв к действию (CTA + Форма заявки) -->
+    <section class="section cta-section" id="contact">
+      <div class="container">
+        <div class="cta-wrapper reveal">
+          <div class="cta-wrapper__info">
+            <div class="badge badge--coral">
+              <span class="badge__dot"></span>
+              <span>Бонус: бесплатный UI-концепт первого экрана</span>
+            </div>
+            <h2 class="cta-wrapper__title">Поймайте волну кратного роста вместе с <span class="text-gradient">Web Wave</span></h2>
+            <p class="cta-wrapper__text">
+              Оставьте контакты — арт-директор и техлид студии разберут вашу задачу, предложат смелые визуальные решения и подготовят точный план запуска.
+            </p>
+
+            <ul class="cta-benefits">
+              <li>
+                <span class="cta-benefits__check">✦</span>
+                <span>Ответ в течение 30 минут в рабочее время без навязчивых менеджеров</span>
+              </li>
+              <li>
+                <span class="cta-benefits__check">✦</span>
+                <span>Фиксация стоимости и дедлайнов в официальном договоре</span>
+              </li>
+              <li>
+                <span class="cta-benefits__check">✦</span>
+                <span>Гарантийная поддержка и развитие проекта после релиза</span>
+              </li>
+            </ul>
+          </div>
+
+          <form class="contact-form" id="lead-form" novalidate>
+            <h3 class="contact-form__title">Стать клиентом Web Wave</h3>
+
+            <div class="field-group">
+              <label class="field-label" for="client-name">Ваше имя *</label>
+              <input type="text" id="client-name" class="custom-input" placeholder="Например, Владимир" required>
+            </div>
+
+            <div class="field-group">
+              <label class="field-label" for="client-contact">Telegram или телефон *</label>
+              <input type="text" id="client-contact" class="custom-input" placeholder="@username или +7 (999) 000-00-00" required>
+            </div>
+
+            <!-- Кастомный выпадающий список способа связи -->
+            <div class="field-group">
+              <label class="field-label">Куда прислать расчет и концепт?</label>
+              <div class="custom-select" data-select id="contact-channel">
+                <button type="button" class="custom-select__trigger" aria-haspopup="listbox" aria-expanded="false">
+                  <span class="custom-select__value" data-select-value>Написать в Telegram</span>
+                  <svg class="custom-select__arrow" width="18" height="18" viewBox="0 0 24 24" fill="none">
+                    <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </button>
+                <ul class="custom-select__dropdown" role="listbox">
+                  <li class="custom-select__option is-selected" role="option" data-value="Telegram">
+                    <span class="opt-dot opt-dot--cyan"></span>Написать в Telegram
+                  </li>
+                  <li class="custom-select__option" role="option" data-value="WhatsApp">
+                    <span class="opt-dot opt-dot--violet"></span>Написать в WhatsApp
+                  </li>
+                  <li class="custom-select__option" role="option" data-value="Phone">
+                    <span class="opt-dot opt-dot--coral"></span>Позвонить по телефону
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="field-group">
+              <label class="field-label" for="client-message">Детали проекта (заполняется автоматически из калькулятора)</label>
+              <textarea id="client-message" class="custom-input custom-textarea" rows="3" placeholder="Опишите задачу своими словами или выберите параметры в калькуляторе выше..."></textarea>
+            </div>
+
+            <button type="submit" class="btn btn--primary btn--full btn--lg">
+              <span>Отправить заявку и забрать бонус</span>
+            </button>
+            <p class="form-error" id="form-error" role="alert" hidden>Заполните, пожалуйста, имя и контакт для связи.</p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Подвал -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <a href="#" class="logo">
+          <span class="logo__text">Web<span>Wave</span></span>
+        </a>
+        <p class="footer__copy">© 2026 Web Wave Digital Studio. Все права защищены.</p>
+      </div>
+      <div class="footer__links">
+        <a href="#services">Услуги</a>
+        <a href="#calculator">Калькулятор</a>
+        <a href="#portfolio">Кейсы</a>
+        <a href="#contact">Заказать сайт</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Всплывающее уведомление -->
+  <div class="toast" id="success-toast" role="status" aria-live="polite" hidden>
+    <div class="toast__icon">✓</div>
+    <div class="toast__body">
+      <strong>Заявка на волне!</strong>
+      <p>Мы получили ваши данные и свяжемся в ближайшее время.</p>
+    </div>
+    <button type="button" class="toast__close" id="toast-close" aria-label="Закрыть">✕</button>
+  </div>
+
+  <script src="index.js"></script>
+</body>
+</html>
