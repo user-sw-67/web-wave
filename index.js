@@ -1,7 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-  /* ==========================================================================
-     1. ИНТЕРАКТИВНЫЙ CANVAS С НЕОНОВЫМИ ВОЛНАМИ В HERO
-     ========================================================================== */
   const canvas = document.getElementById('wave-canvas');
   if (canvas) {
     const ctx = canvas.getContext('2d');
@@ -57,9 +54,6 @@ document.addEventListener('DOMContentLoaded', () => {
     renderWaves();
   }
 
-  /* ==========================================================================
-     2. SPOTLIGHT-ПОДСВЕТКА КАРТОЧЕК И 3D-НАКЛОН ВИТРИНЫ
-     ========================================================================== */
   const spotlightCards = document.querySelectorAll('.spotlight-card');
   spotlightCards.forEach((card) => {
     card.addEventListener('mousemove', (e) => {
@@ -84,9 +78,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  /* ==========================================================================
-     3. МОБИЛЬНОЕ МЕНЮ (БУРГЕР)
-     ========================================================================== */
   const burgerBtn = document.getElementById('burger-btn');
   const navMenu = document.getElementById('nav-menu');
 
@@ -106,9 +97,6 @@ document.addEventListener('DOMContentLoaded', () => {
     link.addEventListener('click', closeMobileMenu);
   });
 
-  /* ==========================================================================
-     4. КАСТОМНЫЕ ВЫПАДАЮЩИЕ СПИСКИ (.custom-select)
-     ========================================================================== */
   const customSelects = document.querySelectorAll('[data-select]');
 
   const closeAllSelects = (exceptSelect = null) => {
@@ -253,9 +241,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   calculateProject();
 
-  /* ==========================================================================
-     6. ФИЛЬТРАЦИЯ ПОРТФОЛИО И АККОРДЕОН FAQ
-     ========================================================================== */
   const filterBtns = document.querySelectorAll('.filter-btn');
   const caseCards = document.querySelectorAll('.case-card');
 
@@ -289,9 +274,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  /* ==========================================================================
-     7. ОТПРАВКА ФОРМЫ И ПЛАВНОЕ ПОЯВЛЕНИЕ СЕКЦИЙ
-     ========================================================================== */
   const leadForm = document.getElementById('lead-form');
   const formError = document.getElementById('form-error');
   const toast = document.getElementById('success-toast');

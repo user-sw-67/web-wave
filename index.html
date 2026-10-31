@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
   <title>Web Wave — Яркая студия веб-разработки и цифрового дизайна</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%23060b18'/><defs><linearGradient id='g' x1='0' y1='0' x2='32' y2='32' gradientUnits='userSpaceOnUse'><stop offset='0%' stop-color='%2300f0ff'/><stop offset='50%' stop-color='%238b5cf6'/><stop offset='100%' stop-color='%23ff5e97'/></linearGradient></defs><path d='M4 19.5C8 13 12 13 16 19.5C20 26 24 26 28 19.5' fill='none' stroke='url(%23g)' stroke-width='3.2' stroke-linecap='round'/><path d='M4 12.5C8 6 12 6 16 12.5C20 19 24 19 28 12.5' fill='none' stroke='url(%23g)' stroke-width='2.4' stroke-linecap='round' stroke-opacity='0.65'/></svg>">
+  <meta name="theme-color" content="#060b18">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
@@ -11,12 +13,10 @@
 </head>
 <body>
 
-  <!-- Многослойное фоновое аврора-свечение -->
   <div class="ambient-orb ambient-orb--cyan" aria-hidden="true"></div>
   <div class="ambient-orb ambient-orb--violet" aria-hidden="true"></div>
   <div class="ambient-orb ambient-orb--coral" aria-hidden="true"></div>
 
-  <!-- Шапка сайта -->
   <header class="header" id="header">
     <div class="container header__inner">
       <a href="#" class="logo" aria-label="Web Wave на главную">
@@ -44,7 +44,6 @@
           <li><a href="#faq" class="nav__link">FAQ</a></li>
         </ul>
 
-        <!-- Кастомный переключатель валюты -->
         <div class="custom-select custom-select--compact" data-select id="currency-select">
           <button type="button" class="custom-select__trigger" aria-haspopup="listbox" aria-expanded="false">
             <span class="custom-select__value" data-select-value>₽ RUB</span>
@@ -79,7 +78,6 @@
   </header>
 
   <main>
-    <!-- Hero секция с интерактивным Canvas -->
     <section class="hero" id="hero">
       <canvas id="wave-canvas" class="hero__canvas" aria-hidden="true"></canvas>
 
@@ -124,7 +122,6 @@
           </div>
         </div>
 
-        <!-- Интерактивная 3D-витрина в Hero -->
         <div class="hero__visual reveal">
           <div class="wave-card" id="tilt-card">
             <div class="wave-card__glow" aria-hidden="true"></div>
@@ -139,7 +136,6 @@
             </div>
 
             <div class="wave-card__body">
-              <!-- Живой эквалайзер волн -->
               <div class="equalizer-box">
                 <div class="equalizer-box__info">
                   <span class="equalizer-box__badge">ACTIVE FLOW</span>
@@ -187,7 +183,6 @@
       </div>
     </section>
 
-    <!-- Динамическая бегущая строка (Marquee) -->
     <div class="marquee" aria-hidden="true">
       <div class="marquee__track">
         <span>✦ ВЫРАЗИТЕЛЬНЫЙ UI/UX ДИЗАЙН</span>
@@ -203,7 +198,6 @@
       </div>
     </div>
 
-    <!-- Секция Услуг со Spotlight-эффектом -->
     <section class="section" id="services">
       <div class="container">
         <div class="section__head reveal">
@@ -264,7 +258,6 @@
       </div>
     </section>
 
-    <!-- Интерактивный калькулятор проекта -->
     <section class="section section--glass" id="calculator">
       <div class="container">
         <div class="section__head reveal">
@@ -275,7 +268,6 @@
 
         <div class="calc-box spotlight-card reveal">
           <div class="calc-box__controls">
-            <!-- Кастомный выпадающий список №1 -->
             <div class="field-group">
               <label class="field-label">Формат цифрового продукта</label>
               <div class="custom-select" data-select id="calc-type">
@@ -302,7 +294,6 @@
               </div>
             </div>
 
-            <!-- Кастомный выпадающий список №2 -->
             <div class="field-group">
               <label class="field-label">Уровень визуала и интерактивности</label>
               <div class="custom-select" data-select id="calc-design">
@@ -326,7 +317,6 @@
               </div>
             </div>
 
-            <!-- Декорированный ползунок с динамическим заполнением -->
             <div class="field-group">
               <div class="field-label-row">
                 <label class="field-label" for="screens-range">Масштаб проекта (уникальных блоков)</label>
@@ -340,7 +330,6 @@
               </div>
             </div>
 
-            <!-- Декорированные чекбоксы -->
             <div class="field-group">
               <span class="field-label">Усиление проекта</span>
               <div class="check-pills">
@@ -398,7 +387,6 @@
       </div>
     </section>
 
-    <!-- Портфолио с визуальными мокапами -->
     <section class="section" id="portfolio">
       <div class="container">
         <div class="section__head section__head--split reveal">
@@ -414,7 +402,6 @@
         </div>
 
         <div class="portfolio-grid" id="portfolio-grid">
-          <!-- Кейс 1 -->
           <article class="case-card spotlight-card reveal" data-category="landing">
             <div class="case-card__preview case-card__preview--1">
               <div class="mockup-window" aria-hidden="true">
@@ -435,7 +422,6 @@
             </div>
           </article>
 
-          <!-- Кейс 2 -->
           <article class="case-card spotlight-card reveal" data-category="service">
             <div class="case-card__preview case-card__preview--2">
               <div class="mockup-window" aria-hidden="true">
@@ -456,7 +442,6 @@
             </div>
           </article>
 
-          <!-- Кейс 3 -->
           <article class="case-card spotlight-card reveal" data-category="landing">
             <div class="case-card__preview case-card__preview--3">
               <div class="mockup-window" aria-hidden="true">
@@ -477,7 +462,6 @@
       </div>
     </section>
 
-    <!-- FAQ Аккордеон -->
     <section class="section section--glass" id="faq">
       <div class="container container--narrow">
         <div class="section__head reveal">
@@ -525,7 +509,6 @@
       </div>
     </section>
 
-    <!-- Главный призыв к действию (CTA + Форма заявки) -->
     <section class="section cta-section" id="contact">
       <div class="container">
         <div class="cta-wrapper reveal">
@@ -568,7 +551,6 @@
               <input type="text" id="client-contact" class="custom-input" placeholder="@username или +7 (999) 000-00-00" required>
             </div>
 
-            <!-- Кастомный выпадающий список способа связи -->
             <div class="field-group">
               <label class="field-label">Куда прислать расчет и концепт?</label>
               <div class="custom-select" data-select id="contact-channel">
@@ -607,7 +589,6 @@
     </section>
   </main>
 
-  <!-- Подвал -->
   <footer class="footer">
     <div class="container footer__inner">
       <div class="footer__brand">
@@ -625,7 +606,6 @@
     </div>
   </footer>
 
-  <!-- Всплывающее уведомление -->
   <div class="toast" id="success-toast" role="status" aria-live="polite" hidden>
     <div class="toast__icon">✓</div>
     <div class="toast__body">
